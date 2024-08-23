@@ -12,13 +12,6 @@ echo
 echo "**** Update repository package and Install Docker ****"
 echo 
 
-cat <<EOF | sudo tee /etc/environment
-PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
-export http_proxy="http://"
-export https_proxy="http://"
-export no_proxy="localhost,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,169.254.0.0/16,127.0.0.0/8"
-EOF
-
 apt update
 apt install -y ca-certificates curl apt-transport-https
 curl -fsSL https://get.docker.com | bash
