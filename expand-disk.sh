@@ -18,13 +18,7 @@ echo
 echo "**** Extend logical volume ****"
 echo
 
-lvextend -l +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lv
-
-echo
-echo "**** Extend filesystem ****"
-echo
-
-resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv
+lvextend -l +100%FREE -r /dev/mapper/ubuntu--vg-ubuntu--lv
 
 echo
 echo "Finish expand"
