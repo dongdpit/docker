@@ -12,7 +12,8 @@ echo
 echo "**** Growpart device ****"
 echo
 
-printf "resizepart 2 100%\nquit\n" | parted /dev/sda 2
+parted -s /dev/sda resizepart 2 100%
+partprobe /dev/sda
 
 echo
 echo "**** Resize PV ****"
