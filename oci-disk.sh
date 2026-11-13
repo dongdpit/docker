@@ -18,9 +18,10 @@ if lsblk | grep -q "sda4"; then
     echo "sda4 exists. Skip."
 else
     printf "n\n\n\n\n\nw\ny\ny\n" | gdisk $DEVICE
-    partprobe $DEVICE
     sleep 2
 fi
+
+partprobe $DEVICE
 
 echo "**** Format ****"
 if lsblk -f | grep -q "sda4.*$FS_TYPE"; then
